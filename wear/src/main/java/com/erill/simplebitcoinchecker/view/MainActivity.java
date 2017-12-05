@@ -1,4 +1,4 @@
-package com.erill.simplebitcoinchecker;
+package com.erill.simplebitcoinchecker.view;
 
 import android.os.Bundle;
 import android.support.wear.widget.BoxInsetLayout;
@@ -6,10 +6,17 @@ import android.support.wearable.activity.WearableActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.erill.simplebitcoinchecker.BaseApplication;
+import com.erill.simplebitcoinchecker.R;
+import com.erill.simplebitcoinchecker.di.AppComponent;
+import com.erill.simplebitcoinchecker.model.BitcoinInfo;
+
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends WearableActivity {
+public class MainActivity extends WearableActivity implements MainView {
 
     public static final int FAKE_PRICE_INTERVAL = 100;
     public static final int FAKE_INITIAL_PRICE = 9450;
@@ -19,6 +26,9 @@ public class MainActivity extends WearableActivity {
     @BindView(R.id.bitcoin_value)
     TextView textValue;
 
+    @Inject
+    MainPresenter mainPresenter;
+
     String priceValue;
 
     @Override
@@ -26,6 +36,9 @@ public class MainActivity extends WearableActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        AppComponent appComponent = ((BaseApplication) getApplication()).getAppComponent();
+        appComponent.inject(this);
+        mainPresenter.bindView(this);
 
         initPrice();
         initListeners();
@@ -58,9 +71,10 @@ public class MainActivity extends WearableActivity {
 
     private void getNewPrice() {
         // We randomly create a new value
-        double newPrice = (Math.random() * FAKE_PRICE_INTERVAL) + FAKE_INITIAL_PRICE;
+        /*double newPrice = (Math.random() * FAKE_PRICE_INTERVAL) + FAKE_INITIAL_PRICE;
         priceValue = String.format("%.2f", newPrice);
-        printValue();
+        printValue();*/
+        mainPresenter.getBitcoinData();
     }
 
     private void initPrice() {
@@ -70,5 +84,27 @@ public class MainActivity extends WearableActivity {
 
     private void printValue() {
         textValue.setText(getString(R.string.bitcoin_value, priceValue));
+    }
+
+    @Override
+    public void showLoading() {
+        //TODO
+    }
+
+    @Override
+    public void dismissLoading() {
+        //TODO
+    }
+
+    @Override
+    public void showInfo(BitcoinInfo bitcoinInfo) {
+        double price = bitcoinInfo.getPrice();
+        priceValue = String.format("%.2f", price);
+        printValue();
+    }
+
+    @Override
+    public void showError(String error) {
+        //TODO
     }
 }
