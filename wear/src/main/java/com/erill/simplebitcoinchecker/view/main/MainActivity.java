@@ -1,4 +1,4 @@
-package com.erill.simplebitcoinchecker.view;
+package com.erill.simplebitcoinchecker.view.main;
 
 import android.os.Bundle;
 import android.support.wear.widget.BoxInsetLayout;

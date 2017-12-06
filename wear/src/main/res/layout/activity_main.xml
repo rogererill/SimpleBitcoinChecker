@@ -9,7 +9,7 @@
     android:layout_centerInParent="false"
     android:background="@color/dark_grey"
     android:padding="@dimen/box_inset_layout_padding"
-    tools:context="com.erill.simplebitcoinchecker.view.MainActivity"
+    tools:context="com.erill.simplebitcoinchecker.view.main.MainActivity"
     tools:deviceIds="wear">
 
     <RelativeLayout

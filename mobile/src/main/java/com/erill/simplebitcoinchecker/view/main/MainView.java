@@ -1,4 +1,4 @@
-package com.erill.simplebitcoinchecker.view;
+package com.erill.simplebitcoinchecker.view.main;
 
 import com.erill.simplebitcoinchecker.model.BitcoinInfo;
 import com.erill.simplebitcoinchecker.view.base.BaseView;

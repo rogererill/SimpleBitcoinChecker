@@ -18,5 +18,4 @@ public interface AppComponent {
     void inject(BitcoinManager bitcoinManager);
 
     void inject(MainActivity mainActivity);
-
 }
