@@ -10,6 +10,6 @@ public interface BaseView {
 
     void dismissLoading();
 
-    void showError(String errorMessage);
+    void showError();
 
 }

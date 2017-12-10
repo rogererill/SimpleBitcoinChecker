@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SimpleBitcoinChecker</string>
+    <string name="your_bitcoins">Your bitcoins</string>
+    <string name="current_bitcoin_price">Current bitcoin price:</string>
+    <string name="your_balance">Your balance</string>
+    <string name="retry">Retry</string>
+    <string name="error">Error</string>
+    <string name="last_update">Last update at %1$s</string>
+    <string name="generic_error">Error loading data</string>
 </resources>
