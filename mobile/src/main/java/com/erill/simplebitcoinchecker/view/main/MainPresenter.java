@@ -5,6 +5,7 @@ import android.content.Context;
 import com.erill.simplebitcoinchecker.R;
 import com.erill.simplebitcoinchecker.manager.BitcoinManager;
 import com.erill.simplebitcoinchecker.model.BitcoinInfo;
+import com.erill.simplebitcoinchecker.utils.Utils;
 import com.erill.simplebitcoinchecker.view.base.BasePresenter;
 
 import javax.inject.Inject;
@@ -60,7 +61,7 @@ public class MainPresenter extends BasePresenter<MainView> {
     public String getUserBalance(double userQuantity) {
         if (coinValue == null) return context.getString(R.string.error);
         double balance = coinValue * userQuantity;
-        final String formattedPrice = String.format("%.2f", balance);
-        return String.valueOf(formattedPrice) + "€";
+        return Utils.formatPrice(balance);
     }
+
 }

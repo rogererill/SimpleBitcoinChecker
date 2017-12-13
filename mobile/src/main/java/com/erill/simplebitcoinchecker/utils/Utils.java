@@ -1,5 +1,6 @@
 package com.erill.simplebitcoinchecker.utils;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.text.ParseException;
@@ -57,5 +58,11 @@ public abstract class Utils {
         final TimeZone timezone = TimeZone.getDefault();
         Date now = new Date();
         return timezone.getOffset(now.getTime()) / (1000);
+    }
+
+    @NonNull
+    public static String formatPrice(double price) {
+        final String formattedPrice = String.format("%.2f", price);
+        return String.valueOf(formattedPrice) + "€";
     }
 }

@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         final Date lastUpdate = bitcoinInfo.getTime();
         lastUpdateText.setVisibility(View.VISIBLE);
         lastUpdateText.setText(getString(R.string.last_update, Utils.getLastHourUpdate(lastUpdate)));
-        price.setText(String.valueOf(bitcoinInfo.getPrice()) + "€");
+        price.setText(Utils.formatPrice(bitcoinInfo.getPrice()));
         calculateValues(inputQuantity.getText().toString());
     }
 
