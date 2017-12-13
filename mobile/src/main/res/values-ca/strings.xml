@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="your_bitcoins">Els teus bitcoins</string>
+    <string name="current_bitcoin_price">Valor actual del Bitcoin:</string>
+    <string name="your_balance">El teu balanç</string>
+    <string name="retry">Reintentar</string>
+    <string name="error">Error</string>
+    <string name="last_update">Última actualització a les %1$s</string>
+    <string name="generic_error">Error carregant les dades</string>
+</resources>
