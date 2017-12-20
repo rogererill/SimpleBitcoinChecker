@@ -7,8 +7,6 @@ import com.erill.simplebitcoinchecker.model.BitcoinInfo;
 import javax.inject.Inject;
 
 import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by Roger on 5/12/17.
@@ -24,8 +22,6 @@ public class BitcoinManager {
     }
 
     public Observable<BitcoinInfo> getBitcoinInfo() {
-        return bitcoinApi.getPriceData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
+        return bitcoinApi.getPriceData();
     }
 }

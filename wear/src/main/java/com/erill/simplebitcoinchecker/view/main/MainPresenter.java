@@ -6,7 +6,9 @@ import com.erill.simplebitcoinchecker.view.base.BasePresenter;
 
 import javax.inject.Inject;
 
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Roger on 5/12/17.
@@ -25,6 +27,8 @@ public class MainPresenter extends BasePresenter<MainView> {
         getView().showLoading();
 
         bitcoinManager.getBitcoinInfo()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<BitcoinInfo>() {
                     @Override
                     public void call(BitcoinInfo bitcoinInfo) {
